@@ -3,3 +3,12 @@ Le module contrôle comprend :
 - Le séquenceur de notre fusée
 - Un systeme de point d'accès pour accéder a divers systeme de notre fusée lors de son passage au sol
 - Un systeme utilisant le protocol ESP-NOW pour communiquer entre les differents modules
+
+
+
+
+The control module includes:
+
+- The sequencer of our rocket
+- ​​An access point system to access various systems of our rocket during its passage on the ground
+- A system using the ESP-NOW protocol to communicate between the different modules
