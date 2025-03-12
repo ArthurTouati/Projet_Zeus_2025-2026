@@ -2,7 +2,7 @@
 #include <WebServer.h>
 
 const char* ssid = "Controle-Access-Point"; // Access point SSID
-const char* password = "Zeus-2025-AT"; // Access point password (at least 8 characters)
+const char* password = "************"; // Access point password (at least 8 characters)
 
 WebServer server(80); // Web server on port 80
 
