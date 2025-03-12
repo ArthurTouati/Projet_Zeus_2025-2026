@@ -4,7 +4,7 @@
 #include <ctime>
 
 const char* ssid = "Controle-Access-Point"; // Access point SSID
-const char* password = "Zeus-2025-AT"; // Access point password (at least 8 characters)
+const char* password = "************"; // Access point password (at least 8 characters)
 float latitude;
 float longitude;
 
