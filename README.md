@@ -36,6 +36,7 @@
 ## Description du Projet
 
 Le but de ce projet est de fabriquer une fusée expérimentale avec deux mission principales : 
+
 **Analyse météo :**
 Nous alons mesurer des données météorologiques grâce a un larguage de charge utile de type cansat à une altitude d’environ 3km, afin de faire une étude des nuages en moyennes altitude.
 Pour cela nous utilisons de nombreux capteurs tel qu'un BME680, un anémometre à ultrason, un pyranometre, un gps et un imu.
