@@ -22,16 +22,8 @@
 ## Table des matières
 
 - [Description](#Description-du-projet)
-- [Matériel Requis](#matériel-requis)
 - [Logiciel Requis](#logiciel-requis)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Configuration](#configuration) (Optionnel)
-- [Bibliothèques Utilisées](https://www.google.com/search?q=%23biblioth%C3%A8ques-utilis%C3%A9es)
-- [Schéma de Câblage](https://www.google.com/search?q=%23sch%C3%A9ma-de-c%C3%A2blage) (Optionnel)
-- [Crédits](#crédits)
-- [Licence](#licence)
-- [Remerciements](#remerciements) (Optionnel)
 
 ## Description du Projet
 
@@ -43,3 +35,31 @@ Pour cela nous utilisons de nombreux capteurs tel qu'un BME680, un anémometre �
  
 **Prédiction et analyse de trajectoire en temp réel :**
 Nous dévelopons un réseau de neurone afin de de prédire la trajectoire de notre fusée en fonction de different parametre (le poid, la position au décollage, les conditions météo sol au décollage) et nous allons analyser en temp réel la variation entre notre trajectoire et la prédiction de celle ci.
+
+Pour cela, la fusée va etre séparé en different module : 
+
+**Module télémesure :** 
+Ce module comporte la liaison sol de notre fusée (une télémesure numérique) afin d'envoyer les données de vol à une station sol.
+
+**Module larguage-charge utile :**
+Ce module comporte le systeme de larguage de notre charge utile ainsi que la charge utile elle même.
+
+**Module data :**
+Ce module comporte le "cerveau" de notre fusée avec le modele de machine learning, la sauvegarde des données et le controle des autres modules.
+
+**Module poussée :**
+Ce module comporte les supports de notre propulseur.
+
+## Logiciel requis
+
+- [Arduino IDE](https://www.arduino.cc/en/software)
+
+## Installation
+
+Décrivez les étapes nécessaires pour installer et préparer l'environnement pour ce projet.
+
+1. **Téléchargez et installez l'Arduino IDE** depuis le site officiel.
+2. **Clonez ce dépôt**.
+   ```bash
+   git clone [https://github.com/NFXSTUDIO/Projet_Zeus_2025-2026](https://github.com/NFXSTUDIO/Projet_Zeus_2025-2026)
+   cd [Nom du dossier du projet]
