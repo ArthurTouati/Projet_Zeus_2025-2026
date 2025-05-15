@@ -19,19 +19,9 @@
 
 ---
 
-## Description du Projet
-
-Le but de ce projet est de fabriquer une fusée expérimentale avec deux mission principales : 
-**Analyse météo :**
-Nous alons mesurer des données météorologiques grâce a un larguage de charge utile de type cansat à une altitude d’environ 3km, afin de faire une étude des nuages en moyennes altitude.
-Pour cela nous utilisons de nombreux capteurs tel qu'un BME680, un anémometre à ultrason, un pyranometre, un gps et un imu.
- 
-**Prédiction et analyse de trajectoire en temp réel :**
-Nous dévelopons un réseau de neurone afin de de prédire la trajectoire de notre fusée en fonction de different parametre (le poid, la position au décollage, les conditions météo sol au décollage) et nous allons analyser en temp réel la variation entre notre trajectoire et la prédiction de celle ci.
-
 ## Table des matières
 
-- [Description](#Description du Projet)
+- [Description](#Description-du-projet)
 - [Matériel Requis](#matériel-requis)
 - [Logiciel Requis](#logiciel-requis)
 - [Installation](#installation)
@@ -42,3 +32,13 @@ Nous dévelopons un réseau de neurone afin de de prédire la trajectoire de not
 - [Crédits](#crédits)
 - [Licence](#licence)
 - [Remerciements](#remerciements) (Optionnel)
+
+## Description du Projet
+
+Le but de ce projet est de fabriquer une fusée expérimentale avec deux mission principales : 
+**Analyse météo :**
+Nous alons mesurer des données météorologiques grâce a un larguage de charge utile de type cansat à une altitude d’environ 3km, afin de faire une étude des nuages en moyennes altitude.
+Pour cela nous utilisons de nombreux capteurs tel qu'un BME680, un anémometre à ultrason, un pyranometre, un gps et un imu.
+ 
+**Prédiction et analyse de trajectoire en temp réel :**
+Nous dévelopons un réseau de neurone afin de de prédire la trajectoire de notre fusée en fonction de different parametre (le poid, la position au décollage, les conditions météo sol au décollage) et nous allons analyser en temp réel la variation entre notre trajectoire et la prédiction de celle ci.
