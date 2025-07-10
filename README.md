@@ -53,6 +53,7 @@ Ce module comporte les supports de notre propulseur.
 ## Logiciel requis
 
 - [Arduino IDE](https://www.arduino.cc/en/software)
+- [Pychram (ou equivalent)](https://www.jetbrains.com/pycharm/)
 
 ## Installation
 
