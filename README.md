@@ -53,13 +53,13 @@ Ce module comporte les supports de notre propulseur.
 ## Logiciel requis
 
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Pychram (ou equivalent)](https://www.jetbrains.com/pycharm/)
+- [Pycharm (ou equivalent)](https://www.jetbrains.com/pycharm/)
 
 ## Installation
 
 Décrivez les étapes nécessaires pour installer et préparer l'environnement pour ce projet.
 
-1. **Téléchargez et installez l'Arduino IDE** depuis le site officiel.
+1. **Téléchargez et installez l'Arduino IDE ou pycharm** depuis le site officiel.
 2. **Clonez ce dépôt**.
    ```bash
    git clone [https://github.com/NFXSTUDIO/Projet_Zeus_2025-2026](https://github.com/NFXSTUDIO/Projet_Zeus_2025-2026)
