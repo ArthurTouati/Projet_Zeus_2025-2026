@@ -9,7 +9,9 @@
 <h1 align="center">PMI - Projet Zeus </h1>
 
 <p align="center">
-  Projet réalisé par : Corentin GAUDARD / Charbel Ghanem / Antoine ROUYER / Arthur TOUATI
+  Projet réalisé par : Corentin GAUDARD / Sylvestre JEANNIN / Antoine ROUYER / Arthur TOUATI
+  <br>
+  Suppervisé par : Jonatan ALVAREZ / Aybuke OZTURK
   <br>
   License : MIT
   <br>
