@@ -1,4 +1,4 @@
-Le module contrôle comprend : 
+Le module data comprend : 
 
 - Le séquenceur de notre fusée
 - Un systeme de point d'accès pour accéder a divers systeme de notre fusée lors de son passage au sol
@@ -7,7 +7,7 @@ Le module contrôle comprend :
 
 
 
-The control module includes:
+The data module includes:
 
 - The sequencer of our rocket
 - ​​An access point system to access various systems of our rocket during its passage on the ground
