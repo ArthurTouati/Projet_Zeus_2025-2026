@@ -40,9 +40,6 @@ Nous dévelopons un réseau de neurone afin de de prédire la trajectoire de not
 
 Pour cela, la fusée va etre séparé en different module : 
 
-**Module télémesure :** 
-Ce module comporte la liaison sol de notre fusée (une télémesure numérique) afin d'envoyer les données de vol à une station sol.
-
 **Module larguage-charge utile :**
 Ce module comporte le systeme de larguage de notre charge utile ainsi que la charge utile elle même.
 
