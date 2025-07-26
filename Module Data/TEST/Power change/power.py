@@ -24,4 +24,38 @@ def get_power_mode():
         print("Error: nvpmodel command not found. Make sure it's installed and in your PATH.")
         return "Error"
 
-get_power_mode()
+def set_power_mode(mode_id):
+    print(f"Attempting to set power mode to ID: {mode_id}...")
+    try:
+        subprocess.run(
+            ["sudo", "/usr/sbin/nvpmodel", "-m", str(mode_id)],
+            check=True,
+            capture_output=True,
+            text=True
+        )
+        print(f"Successfully set power mode to ID: {mode_id}.")
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Error setting power mode to ID {mode_id}: {e}")
+        print(f"Stderr: {e.stderr}")
+        return False
+    except FileNotFoundError:
+        print("Error: nvpmodel command not found. Make sure it's installed and in your PATH.")
+        return False
+
+high_performance_mode = 1
+low_performance_mode = 0
+
+power = input("Enter the power mode to set (High/Low): ")
+
+match power:
+    case "High":
+        set_power_mode(high_performance_mode)
+        time.sleep(2)
+        print(f"New power mode: {get_power_mode()}")
+    case "Low":
+        set_power_mode(low_performance_mode)
+        time.sleep(2)
+        print(f"New power mode: {get_power_mode()}")
+    case other_command:
+        print(f"Unknown command: {other_command}")
