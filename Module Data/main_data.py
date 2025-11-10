@@ -1,0 +1,36 @@
+import time
+import IMUHandler as Imu
+import board
+import busio
+import DataHandler as Data
+from datetime import datetime
+
+# Setup
+i2c = busio.I2C(board.SCL,board.SDA)
+imu = Imu.IMUHandler(i2c)
+i = 0
+header_time = ['gt','rt']
+time_dict = dict.fromkeys(header_time)
+ground_time, rocket_time = [],[]
+
+while i <= 10:
+    time.sleep(0.5)
+    imu.read_data()
+    ground_time.append(datetime.now().strftime('%H:%M:%S'))
+    rocket_time.append(i)
+    i+= 0.5
+
+imu_dict = imu.export_to_dict()
+time_dict['gt'] = ground_time
+time_dict['rt'] = rocket_time
+print(time_dict)
+print(imu_dict)
+header_gps = ['x','y','z']
+gps_dict = dict.fromkeys(header_gps)
+gt = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+gps_dict['x'] = gt
+gps_dict['y'] = gt
+gps_dict['z'] = gt
+trajectory_file = Data.TrajectoryData()
+trajectory_file.export_data(time_dict,gps_dict,imu_dict)
