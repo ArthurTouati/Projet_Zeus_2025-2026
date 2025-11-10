@@ -28,3 +28,8 @@ class GPSHandler:
         # Calculate x, y coordinates
         self.x.append(np.cos(lat_rad) * np.cos(lon_rad))
         self.y.append(np.cos(lat_rad) * np.sin(lon_rad))
+        
+    def convert_to_dict(self):
+        self.gps_dict['x'] = self.x
+        self.gps_dict['y'] = self.y
+        self.gps_dict['z'] = self.z
