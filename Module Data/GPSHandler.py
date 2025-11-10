@@ -1,5 +1,5 @@
 import numpy as np
-import 
+import smbus2
 import pynmea2
 
 class GPSHandler:
@@ -8,6 +8,9 @@ class GPSHandler:
         self.x = []
         self.y = []
         self.z = []
+
+        # Constant :
+        self.EARTH_RADIUS = 6371000
 
         # Export dict :
         self.header = ['x','y','z']
@@ -21,7 +24,7 @@ class GPSHandler:
         
     def read_data(self):
         # Recover data from GPS : 
-        data = bus.read_i2c_block_data(SAM_M10Q_ADDR, 0xFF, 32)
+        data = bus.read_i2c_block_data(self.SAM_M10Q_ADDR, 0xFF, 32)
         self.read_buffer += data
         lines = self.read_buffer.decode('ascii', errors='ignore').split('\r\n')
         self.read_buffer = lines[-1].encode('ascii')
@@ -32,9 +35,9 @@ class GPSHandler:
                 try:
                     msg = pynmea2.parse(line)
                         if msg.is_valid and msg.gps_qual > 0:
-                            lat = msg.lat_dir
-                            long = msg.lon_dir
-                            altitude = msg.altitude_units
+                            lat = msg.latitude
+                            long = msg.longitude
+                            altitude = msg.altitude
                             # Convert and add value into xyz coordinate : 
                             self.convert_lat_long_to_xy(lat,long,altitude)
                         except pynmea2.ParseError as e:
@@ -45,10 +48,12 @@ class GPSHandler:
         lat_rad = lat * (np.pi / 180)
         lon_rad = long * (np.pi / 180)
 
+        r = self.EARTH_RADIUS + altitude
+
         # Calculate x, y coordinates
-        self.x.append(np.cos(lat_rad) * np.cos(lon_rad))
-        self.y.append(np.cos(lat_rad) * np.sin(lon_rad))
-        self.z.append(altitude)
+        self.x.append(r * np.cos(lat_rad) * np.cos(lon_rad))
+        self.y.append(r * np.cos(lat_rad) * np.sin(lon_rad))
+        self.z.append(r * np.sin(lat_rad))
         
     def convert_to_dict(self):
         # Add each list to the dictionary
