@@ -17,10 +17,10 @@ class GPSHandler:
         # Sensor init :
 
     def read_data(self):
-        self.convert_lat_long_to_xyz()
+        self.convert_lat_long_to_xy()
         pass
 
-    def convert_lat_long_to_xyz(self):
+    def convert_lat_long_to_xy(self):
         # Convert latitude and longitude into radians
         lat_rad = self.lat * (np.pi / 180)
         lon_rad = self.lon * (np.pi / 180)
