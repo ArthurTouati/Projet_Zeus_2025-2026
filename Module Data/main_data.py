@@ -1,8 +1,8 @@
 import time
-import IMUHandler as Imu
-import GPSHandler as Gps
 import board
 import busio
+import IMUHandler as Imu
+import GPSHandler as Gps
 import DataHandler as Data
 from datetime import datetime
 
