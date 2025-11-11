@@ -21,27 +21,6 @@ class GPSHandler:
         self.SAM_M10Q_ADDR = 0x42
         self.bus = smbus2.SMBus(self.I2C_BUS_NUM)
         self.readbuffer = b""
-        
-    def read_data(self):
-        # Recover data from GPS : 
-        data = bus.read_i2c_block_data(self.SAM_M10Q_ADDR, 0xFF, 32)
-        self.read_buffer += data
-        lines = self.read_buffer.decode('ascii', errors='ignore').split('\r\n')
-        self.read_buffer = lines[-1].encode('ascii')
-
-        # Process lines : 
-        for line in lines[:-1]:
-            if line.startswith('$GNGGA'):
-                try:
-                    msg = pynmea2.parse(line)
-                        if msg.is_valid and msg.gps_qual > 0:
-                            lat = msg.latitude
-                            long = msg.longitude
-                            altitude = msg.altitude
-                            # Convert and add value into xyz coordinate : 
-                            self.convert_lat_long_to_xy(lat,long,altitude)
-                        except pynmea2.ParseError as e:
-                            pass
 
     def convert_lat_long_to_xy(self,lat,long,altitude):
         # Convert latitude and longitude into radians
@@ -55,7 +34,7 @@ class GPSHandler:
         self.y.append(r * np.cos(lat_rad) * np.sin(lon_rad))
         self.z.append(r * np.sin(lat_rad))
         
-    def convert_to_dict(self):
+    def export_to_dict(self):
         # Add each list to the dictionary
         self.gps_dict['x'] = self.x
         self.gps_dict['y'] = self.y
@@ -72,4 +51,23 @@ class GPSHandler:
         self.y.clear()
         self.z.clear()
 
-    
+    def read_data(self):
+        # Recover data from GPS :
+        data = self.bus.read_i2c_block_data(self.SAM_M10Q_ADDR, 0xFF, 32)
+        self.read_buffer += data
+        lines = self.read_buffer.decode('ascii', errors='ignore').split('\r\n')
+        self.read_buffer = lines[-1].encode('ascii')
+
+        # Process lines :
+        for line in lines[:-1]:
+            if line.startswith('$GNGGA'):
+                try:
+                    msg = pynmea2.parse(line)
+                        if msg.is_valid and msg.gps_qual > 0:
+                            lat = msg.latitude
+                            long = msg.longitude
+                            altitude = msg.altitude
+                            # Convert and add value into xyz coordinate :
+                            self.convert_lat_long_to_xy(lat,long,altitude)
+                        except pynmea2.ParseError as e:
+                            pass

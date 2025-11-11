@@ -4,8 +4,8 @@ import time
 
 # --- Configuration ---
 # *** CHANGE THIS *** to the I2C bus number you found with i2cdetect
-I2C_BUS_NUM = 1  
-SAM_M10Q_ADDR = 0x42  # Default u-blox I2C address
+I2C_BUS_NUM = 7
+SAM_M10Q_ADDR = 0x84  # Default u-blox I2C address
 # ---------------------
 
 def read_sam_m10q():
@@ -58,7 +58,7 @@ def read_sam_m10q():
                             # print(f"Parse error: {e}")
                             pass
 
-            except smbus2.SMBusError as e:
+            except IOError as e:
                 # Handle I2C read errors (e.g., sensor disconnected)
                 print(f"I2C Error: {e}. Check connection.")
                 time.sleep(2)
