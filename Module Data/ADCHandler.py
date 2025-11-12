@@ -1,5 +1,5 @@
-from Adafruit_ADS1x15 import ADS1115,AnalogIn,ads1x15
-from Adafruit_ADS1x15.ads1x15 import Mode
+from adafruit_ads1x15 import ADS1115,AnalogIn,ads1x15
+from adafruit_ads1x15.ads1x15 import Mode
 from datetime import datetime
 
 class ADCHandler:
@@ -28,6 +28,8 @@ class ADCHandler:
         # Min level = 4.69 V
         level_seq = ((voltage_seq - 4.69) / (5 - 4.69)) * 100.0
         level_data = ((voltage_data - 4.69) / (5 - 4.69)) * 100.0
+        print(f"Battery level : {level_seq}%")
+        print(f"Battery level : {level_data}%")
 
         # Verify if the level is between 0 and 100% and correct if there is a mistake :
         if level_seq > 100.0:

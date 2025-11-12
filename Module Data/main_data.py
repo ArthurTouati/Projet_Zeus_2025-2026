@@ -3,7 +3,7 @@ import board
 import busio
 from datetime import datetime
 import IMUHandler as Imu
-import GPSHandler as Gps
+#import GPSHandler as Gps
 import DataHandler as Data
 import ESP32Handler as Esp32
 import ADCHandler as Adc
@@ -54,4 +54,6 @@ while i<=10:
 
 esp32_dict = esp32.export_to_dict()
 batt_dict = adc.export_to_dict()
+print(batt_dict)
+print(esp32_dict)
 rocket_file.export_data(esp32_dict,batt_dict)
