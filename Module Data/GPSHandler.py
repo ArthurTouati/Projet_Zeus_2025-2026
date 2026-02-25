@@ -71,7 +71,7 @@ class GPSHandler:
                 cmd_data = bytes([0xFF])
                 buf_data = bytearray(to_read)
 
-                self.i2c.writeto_then_readfrom(self.SAM_M10Q_ADDR, cmd_data, buf_data)
+                self.i2c.writeto_then_readfrom(self.SAM_M10Q_ADDR)
 
                 # Ajout au buffer principal
                 self.read_buffer += bytes(buf_data)
@@ -96,6 +96,7 @@ class GPSHandler:
                                 except pynmea2.ParseError:
                                     pass
                 except Exception:
+                    print(f"Error decoding: {self.read_buffer}")
                     pass
 
         except Exception as e:

@@ -24,10 +24,11 @@ class ADCHandler:
         voltage_data = AnalogIn(self.ads, ads1x15.Pin.A1).voltage
 
         # Convert voltage into battery level :
-        # Max level = 5V
-        # Min level = 4.69 V
-        level_seq = ((voltage_seq - 4.69) / (5 - 4.69)) * 100.0
-        level_data = ((voltage_data - 4.69) / (5 - 4.69)) * 100.0
+        # Max level = 2.2V
+        # Min level = 1.89 V
+        print(voltage_seq, voltage_data)
+        level_seq = ((voltage_seq - 1.89) / (2.2 - 1.89)) * 100.0
+        level_data = ((voltage_data - 1.89) / (2.2 - 1.89)) * 100.0
         print(f"Battery level : {level_seq}%")
         print(f"Battery level : {level_data}%")
 

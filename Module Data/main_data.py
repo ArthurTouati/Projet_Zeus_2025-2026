@@ -41,19 +41,19 @@ trajectory_file.export_data(time_dict,gps_dict,imu_dict)
 """ Code fusée : """
 # Setup :
 i2c = busio.I2C(board.SCL,board.SDA)
-esp32 = Esp32.ESP32Handler(i2c)
+#esp32 = Esp32.ESP32Handler(i2c)
 adc = Adc.ADCHandler(i2c)
 rocket_file = Data.RocketData()
 i = 0
 
 while i<=10:
     time.sleep(0.5)
-    esp32.read_data()
+    #esp32.read_data()
     adc.read_data()
     i+=0.5
 
-esp32_dict = esp32.export_to_dict()
+#esp32_dict = esp32.export_to_dict()
 batt_dict = adc.export_to_dict()
 print(batt_dict)
-print(esp32_dict)
-rocket_file.export_data(esp32_dict,batt_dict)
+#print(esp32_dict)
+rocket_file.export_data(batt_dict,batt_dict)
